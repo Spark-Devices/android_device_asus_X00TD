@@ -278,7 +278,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.ecclist=112,911 \
     ro.telephony.iwlan_operation_mode=legacy \
     ro.telephony.use_old_mnc_mcc_format=true \
-    vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+    vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    persist.vendor.radio.mt_sms_ack=30
 
 # Power save functionality for modem
 PRODUCT_PROPERTY_OVERRIDES += \
