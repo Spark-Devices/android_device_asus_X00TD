@@ -7,8 +7,7 @@
   {
     "repository": "vendor_asus_X00TD",
     "target_path": "vendor/asus/X00TD",
-    "branch": "eleven",
-    "remote": "pixel-devices-blobs"
+    "branch": "eleven"
   },
   {
     "repository": "Subinsmani/packages_apps_GoogleCameraGoEdition",
