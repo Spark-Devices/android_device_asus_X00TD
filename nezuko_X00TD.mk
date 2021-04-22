@@ -19,8 +19,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
-# Inherit some common Corvus stuff
-$(call inherit-product, vendor/corvus/config/common_full_phone.mk)
+# Inherit some common nezuko stuff
+$(call inherit-product, vendor/nezuko/config/common_full_phone.mk)
 
 # Poduct spec
 TARGET_INCLUDE_WIFI_EXT := true
@@ -29,13 +29,21 @@ TARGET_BOOT_ANIMATION_RES := 1080
 IS_PHONE := true
 scr_resolution := 1080
 
+# Nezuko official
+NEZUKO_BUILD_TYPE := OFFICIAL
+NEZUKO_MAINTAINER := @pkm774
+NEZUKO_DONATE := https://www.paypal.com/paypalme/PMishra774
+
+# Facelock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 # Inherit from X00TD device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 PRODUCT_BRAND := asus
 PRODUCT_DEVICE := X00TD
 PRODUCT_MANUFACTURER := asus
-PRODUCT_NAME := corvus_X00TD
+PRODUCT_NAME := nezuko_X00TD
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="redfin-user 11 RQ2A.210405.005 7181113 release-keys"
