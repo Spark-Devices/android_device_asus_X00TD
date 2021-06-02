@@ -55,6 +55,8 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
     final static String PREF_EARPIECE_GAIN = "earpiece_gain";
     public static final String EARPIECE_GAIN_PATH = "/sys/kernel/sound_control/earpiece_gain";
+    final static String PREF_SPEAKER_GAIN = "speaker_gain";
+    public static final String SPEAKER_GAIN_PATH = "/sys/kernel/sound_control/speaker_gain";
 
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     private static final String CATEGORY_DISPLAY = "display";
@@ -90,6 +92,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private CustomSeekBarPreference mHeadphoneGain;
     private CustomSeekBarPreference mMicrophoneGain;
     private CustomSeekBarPreference mEarpieceGain;
+    private CustomSeekBarPreference mSpeakerGain;
     
     private SecureSettingListPreference mSPECTRUM;
     
@@ -132,6 +135,9 @@ public class DeviceSettings extends PreferenceFragment implements
         mMicrophoneGain.setOnPreferenceChangeListener(this);
         mEarpieceGain = (CustomSeekBarPreference) findPreference(PREF_EARPIECE_GAIN);
         mEarpieceGain.setOnPreferenceChangeListener(this);
+        mSpeakerGain = (CustomSeekBarPreference) findPreference(PREF_SPEAKER_GAIN);
+        mSpeakerGain.setOnPreferenceChangeListener(this);
+
 	// HeadSet
         mHeadsetType = (SecureSettingListPreference) findPreference(PREF_HEADSET);
         mHeadsetType.setOnPreferenceChangeListener(this);
@@ -318,6 +324,9 @@ public class DeviceSettings extends PreferenceFragment implements
             case PREF_EARPIECE_GAIN:
                 FileUtils.setValue(EARPIECE_GAIN_PATH, (int) value);
                 break;
+            case PREF_SPEAKER_GAIN:
+                FileUtils.setValue(SPEAKER_GAIN_PATH, (int) value);
+               break;
 
 
             default:
