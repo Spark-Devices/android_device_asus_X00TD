@@ -36,8 +36,11 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
     private final String TORCH_2_BRIGHTNESS_PATH = "/sys/devices/soc/800f000.qcom,spmi/spmi-0/" +
             "spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d300/leds/led:torch_1/" +
             "max_brightness";
+
+
     private final String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
     private final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
+    private final String EARPIECE_GAIN_PATH = "/sys/kernel/sound_control/earpiece_gain";
 
     public void onReceive(Context context, Intent intent) {
     
@@ -53,7 +56,8 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         int gain = Settings.Secure.getInt(context.getContentResolver(), DeviceSettings.PREF_HEADPHONE_GAIN, 5);
         FileUtils.setValue(HEADPHONE_GAIN_PATH, gain + " " + gain);
         FileUtils.setValue(MICROPHONE_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(), DeviceSettings.PREF_MICROPHONE_GAIN, 0));
-        
+        FileUtils.setValue(DeviceSettings.EARPIECE_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(), DeviceSettings.PREF_EARPIECE_GAIN, 0));        
+
         // Ambient
         context.startService(new Intent(context, SensorsDozeService.class));
         
