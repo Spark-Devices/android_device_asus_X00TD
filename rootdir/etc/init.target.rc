@@ -110,6 +110,12 @@ on boot
     chown system system /mnt/vendor/persist/speccfg/submask
     chown system system /mnt/vendor/persist/speccfg/partition
 
+    # Audio gain permissions
+    chown system system /sys/kernel/sound_control/headphone_gain
+    chown system system /sys/kernel/sound_control/mic_gain
+    chmod 0660 /sys/kernel/sound_control/headphone_gain
+    chmod 0660 /sys/kernel/sound_control/mic_gain
+
     # Backlight dimmer
     chown system system /sys/module/mdss_fb/parameters/backlight_dimmer
     chmod 0660 /sys/module/mdss_fb/parameters/backlight_dimmer
