@@ -48,6 +48,11 @@ public class DeviceSettings extends PreferenceFragment implements
     private final static String TORCH_2_BRIGHTNESS_PATH = "/sys/devices/soc/800f000.qcom," +
             "spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d300/leds/led:torch_1/max_brightness";
 
+    final static String PREF_HEADPHONE_GAIN = "headphone_gain";
+    private static final String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
+    final static String PREF_MICROPHONE_GAIN = "microphone_gain";
+    private static final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
+
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     private static final String CATEGORY_DISPLAY = "display";
     private static final String PREF_DEVICE_KCAL = "device_kcal";
@@ -78,6 +83,12 @@ public class DeviceSettings extends PreferenceFragment implements
     private VibratorStrengthPreference mVibratorStrength;
     private Preference mKcal;
     private Preference mAmbientPref;
+    private SecureSettingSwitchPreference mEnableDirac;
+    private SecureSettingListPreference mHeadsetType;
+    private SecureSettingListPreference mPreset;
+
+    private CustomSeekBarPreference mHeadphoneGain;
+    private CustomSeekBarPreference mMicrophoneGain;
     
     private SecureSettingListPreference mSPECTRUM;
 
@@ -251,6 +262,14 @@ public class DeviceSettings extends PreferenceFragment implements
                 } else {
                     this.getContext().stopService(fpsinfo);
                 }
+                break;
+            
+            case PREF_HEADPHONE_GAIN:
+                FileUtils.setValue(HEADPHONE_GAIN_PATH, value + " " + value);
+                break;
+
+            case PREF_MICROPHONE_GAIN:
+                FileUtils.setValue(MICROPHONE_GAIN_PATH, (int) value);
                 break;
 
             default:
