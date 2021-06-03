@@ -7,3 +7,5 @@ allow priv_app hal_gnss_hwservice:hwservice_manager { find };
 
 # Dolby
 allow priv_app hal_dms_hwservice:hwservice_manager { find };
+
+

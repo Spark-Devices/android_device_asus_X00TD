@@ -64,6 +64,13 @@ public class DeviceSettings extends PreferenceFragment implements
     
     public static final String PREF_SPECTRUM = "spectrum";
     public static final String SPECTRUM_SYSTEM_PROPERTY = "persist.spectrum.profile";
+
+    public static final String PREF_GPUBOOST = "gpuboost";
+    public static final String GPUBOOST_SYSTEM_PROPERTY = "persist.zenparts.gpu_profile";
+
+    public static final String PREF_CPUBOOST = "cpuboost";
+    public static final String CPUBOOST_SYSTEM_PROPERTY = "persist.zenparts.cpu_profile";
+
     
     public static final String PERF_MSM_THERMAL = "msmthermal";
     public static final String MSM_THERMAL_PATH = "/sys/module/msm_thermal/parameters/enabled";
@@ -95,6 +102,9 @@ public class DeviceSettings extends PreferenceFragment implements
     private CustomSeekBarPreference mSpeakerGain;
     
     private SecureSettingListPreference mSPECTRUM;
+
+    private SecureSettingListPreference mGPUBOOST;
+    private SecureSettingListPreference mCPUBOOST;
     
     private SecureSettingSwitchPreference mMsmThermal;
     private SecureSettingSwitchPreference mCoreControl;
@@ -234,6 +244,16 @@ public class DeviceSettings extends PreferenceFragment implements
                 return true;
             }
         });
+    //boosts
+    mGPUBOOST = (SecureSettingListPreference) findPreference(PREF_GPUBOOST);
+        mGPUBOOST.setValue(FileUtils.getStringProp(GPUBOOST_SYSTEM_PROPERTY, "0"));
+        mGPUBOOST.setSummary(mGPUBOOST.getEntry());
+        mGPUBOOST.setOnPreferenceChangeListener(this);
+
+        mCPUBOOST = (SecureSettingListPreference) findPreference(PREF_CPUBOOST);
+        mCPUBOOST.setValue(FileUtils.getStringProp(CPUBOOST_SYSTEM_PROPERTY, "0"));
+        mCPUBOOST.setSummary(mCPUBOOST.getEntry());
+        mCPUBOOST.setOnPreferenceChangeListener(this);
 
     }
 
@@ -326,6 +346,16 @@ public class DeviceSettings extends PreferenceFragment implements
                 break;
             case PREF_SPEAKER_GAIN:
                 FileUtils.setValue(SPEAKER_GAIN_PATH, (int) value);
+               break;
+            case PREF_GPUBOOST:
+               mGPUBOOST.setValue((String) value);
+               mGPUBOOST.setSummary(mGPUBOOST.getEntry());
+               FileUtils.setStringProp(GPUBOOST_SYSTEM_PROPERTY, (String) value);
+               break;
+            case PREF_CPUBOOST:
+               mCPUBOOST.setValue((String) value);
+               mCPUBOOST.setSummary(mCPUBOOST.getEntry());
+               FileUtils.setStringProp(CPUBOOST_SYSTEM_PROPERTY, (String) value);
                break;
 
 
