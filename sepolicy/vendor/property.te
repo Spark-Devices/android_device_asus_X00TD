@@ -20,3 +20,8 @@ type tcp_prop, property_type;
 
 # Dirac
 type dirac_prop, property_type;
+# Dolby
+type vendor_dolby_loglevel_prop, property_type;
+
+# GPU/CPU Boosts
+type boosts_prop, property_type;
