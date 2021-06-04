@@ -38,6 +38,7 @@ import com.asus.zenparts.preferences.SecureSettingSwitchPreference;
 import com.asus.zenparts.preferences.VibratorStrengthPreference;
 import com.asus.zenparts.preferences.SeekBarPreference;
 import com.asus.zenparts.ModeSwitch.SmartChargingSwitch;
+import com.asus.zenparts.speaker.ClearSpeakerActivity;
 
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -89,6 +90,8 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String PREF_TCP = "tcpcongestion";
     public static final String TCP_SYSTEM_PROPERTY = "persist.tcp.profile";
 
+    private static final String PREF_CLEAR_SPEAKER = "clear_speaker_settings";
+
     private CustomSeekBarPreference mTorchBrightness;
     private VibratorStrengthPreference mVibratorStrength;
     private Preference mKcal;
@@ -109,6 +112,8 @@ public class DeviceSettings extends PreferenceFragment implements
     public static SeekBarPreference mSeekBarPreference;
     private SecureSettingListPreference mGPUBOOST;
     private SecureSettingListPreference mCPUBOOST;
+
+    private Preference mClearSpeakerPref;
     
     private SecureSettingSwitchPreference mMsmThermal;
     private SecureSettingSwitchPreference mCoreControl;
@@ -201,6 +206,14 @@ public class DeviceSettings extends PreferenceFragment implements
         mSPECTRUM.setValue(FileUtils.getStringProp(SPECTRUM_SYSTEM_PROPERTY, "0"));
         mSPECTRUM.setSummary(mSPECTRUM.getEntry());
         mSPECTRUM.setOnPreferenceChangeListener(this);
+        
+        //clear speaker
+        mClearSpeakerPref = (Preference) findPreference(PREF_CLEAR_SPEAKER);
+        mClearSpeakerPref.setOnPreferenceClickListener(preference -> {
+            Intent intent = new Intent(getActivity().getApplicationContext(), ClearSpeakerActivity.class);
+            startActivity(intent);
+            return true;
+        });
         
         //MSM Thermal control
         if (FileUtils.fileWritable(MSM_THERMAL_PATH)) {
