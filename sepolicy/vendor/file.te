@@ -34,5 +34,5 @@ type sysfs_vddrestrict, sysfs_type, fs_type;
 type proc_tpd_gesture, fs_type, proc_type;
 type sysfs_call_status, sysfs_type, fs_type;
 
-# smart chaarging - Zenparts
+# smart charging - Zenparts
 type sysfs_scharge, sysfs_type, fs_type;
