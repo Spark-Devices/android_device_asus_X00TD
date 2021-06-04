@@ -28,6 +28,7 @@ import androidx.preference.SwitchPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.SwitchPreference;
+import androidx.preference.TwoStatePreference;
 
 import com.asus.zenparts.kcal.KCalSettingsActivity;
 import com.asus.zenparts.ambient.AmbientGesturePreferenceActivity;
@@ -36,6 +37,8 @@ import com.asus.zenparts.preferences.SecureSettingListPreference;
 import com.asus.zenparts.preferences.SecureSettingSwitchPreference;
 import com.asus.zenparts.preferences.VibratorStrengthPreference;
 import com.asus.zenparts.speaker.ClearSpeakerActivity;
+import com.asus.zenparts.preferences.SeekBarPreference;
+import com.asus.zenparts.ModeSwitch.SmartChargingSwitch;
 
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -72,6 +75,8 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String PREF_CPUBOOST = "cpuboost";
     public static final String CPUBOOST_SYSTEM_PROPERTY = "persist.zenparts.cpu_profile";
 
+    public static final String KEY_CHARGING_SWITCH = "smart_charging";
+    public static final String KEY_RESET_STATS = "reset_stats";
     
     public static final String PERF_MSM_THERMAL = "msmthermal";
     public static final String MSM_THERMAL_PATH = "/sys/module/msm_thermal/parameters/enabled";
@@ -108,6 +113,10 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private SecureSettingListPreference mGPUBOOST;
     private SecureSettingListPreference mCPUBOOST;
+
+    private static TwoStatePreference mSmartChargingSwitch;
+    public static TwoStatePreference mResetStats;
+    public static SeekBarPreference mSeekBarPreference;
 
     private Preference mClearSpeakerPref;
     
@@ -267,6 +276,18 @@ public class DeviceSettings extends PreferenceFragment implements
         mCPUBOOST.setValue(FileUtils.getStringProp(CPUBOOST_SYSTEM_PROPERTY, "0"));
         mCPUBOOST.setSummary(mCPUBOOST.getEntry());
         mCPUBOOST.setOnPreferenceChangeListener(this);
+    //smart charging
+    mSmartChargingSwitch = (TwoStatePreference) findPreference(KEY_CHARGING_SWITCH);
+    mSmartChargingSwitch.setChecked(prefs.getBoolean(KEY_CHARGING_SWITCH, false));
+    mSmartChargingSwitch.setOnPreferenceChangeListener(new SmartChargingSwitch(getContext()));
+
+    mResetStats = (TwoStatePreference) findPreference(KEY_RESET_STATS);
+    mResetStats.setChecked(prefs.getBoolean(KEY_RESET_STATS, false));
+    mResetStats.setEnabled(mSmartChargingSwitch.isChecked());
+    mResetStats.setOnPreferenceChangeListener(this);
+
+    mSeekBarPreference = (SeekBarPreference) findPreference("seek_bar");
+    mSeekBarPreference.setEnabled(mSmartChargingSwitch.isChecked());
 
     }
 

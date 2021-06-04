@@ -28,3 +28,6 @@ type sysfs_egain, sysfs_type, fs_type;
 type sysfs_msmthermal, sysfs_type, fs_type;
 type sysfs_corecontrol, sysfs_type, fs_type;
 type sysfs_vddrestrict, sysfs_type, fs_type;
+
+#smart chaarging
+type sysfs_scharge, sysfs_type, fs_type;

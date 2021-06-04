@@ -46,3 +46,6 @@ set_prop(system_app, boosts_prop);
 get_prop(system_app, boosts_prop);
 allow system_app boosts_prop:property_service set;
 
+# Smart Charging
+allow system_app sysfs_scharge:file { getattr open write };
+
