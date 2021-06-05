@@ -49,3 +49,5 @@ allow system_app boosts_prop:property_service set;
 # Smart Charging
 allow system_app sysfs_scharge:file { getattr open write };
 
+# SELinux
+allow system_app selinuxfs:file { read open };
