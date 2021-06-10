@@ -35,6 +35,9 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 # Inherit from X00TD device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
+#SPARK OFFICIAL
+SPARK_BUILD_TYPE := OFFICIAL
+
 PRODUCT_BRAND := asus
 PRODUCT_DEVICE := X00TD
 PRODUCT_MANUFACTURER := asus
