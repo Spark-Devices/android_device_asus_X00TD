@@ -237,3 +237,5 @@ ro.surface_flinger.set_idle_timer_ms=9000
 # QC framework value-adds
 ro.vendor.qti.va_aosp.support=1
 
+# Adding maintaoner tag
+ ro.spark.maintainer=jai_91
