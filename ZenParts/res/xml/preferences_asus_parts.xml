@@ -303,5 +303,6 @@
                 android:targetClass="com.asus.zenparts.speaker.ClearSpeakerActivity"
                 android:targetPackage="com.asus.zenparts.speaker" />
         </Preference>
+    </PreferenceCategory>
 
 </PreferenceScreen>

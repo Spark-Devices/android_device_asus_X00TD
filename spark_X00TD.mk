@@ -26,6 +26,7 @@ $(call inherit-product, vendor/spark/config/common_full_phone.mk)
 TARGET_INCLUDE_WIFI_EXT := true
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_USES_BLUR := true
 IS_PHONE := true
 scr_resolution := 1080
 
@@ -37,6 +38,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 #SPARK OFFICIAL
 SPARK_BUILD_TYPE := OFFICIAL
+#WITH_GAPPS=true
 
 PRODUCT_BRAND := asus
 PRODUCT_DEVICE := X00TD
@@ -44,10 +46,10 @@ PRODUCT_MANUFACTURER := asus
 PRODUCT_NAME := spark_X00TD
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="redfin-user 11 RQ2A.210505.003 7255357 release-keys"
+    PRIVATE_BUILD_DESC="redfin-user 11 RQ3A.210705.001 7380771 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "google/redfin/redfin:11/RQ3A.210605.005/7349499:user/release-keys"
+BUILD_FINGERPRINT := "google/redfin/redfin:11/RQ3A.210705.001/7380771:user/release-keys"
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
