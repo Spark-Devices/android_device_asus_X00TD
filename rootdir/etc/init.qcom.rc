@@ -464,6 +464,10 @@ on post-fs-data
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
+    #Start Dt2w Node
+    write /sys/kernel/touchpanel/dclicknode 1
+    write /sys/kernel/touchpanel/gesture_node 1
+
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
 
