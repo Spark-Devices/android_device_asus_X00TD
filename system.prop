@@ -240,3 +240,13 @@ ro.com.google.ime.kb_pad_port_b=1
 
 #Disable Skip Validate
 debug.cpurend.vsync=false
+
+#blurs
+ro.sf.blurs_are_expensive=0
+persist.sys.sf.disable_blurs=1
+ro.surface_flinger.supports_background_blur=1
+
+#graphics
+debug.sf.disable_backpressure=1
+debug.sf.latch_unsignaled=0
+persist.hwc.enable_vds=0
