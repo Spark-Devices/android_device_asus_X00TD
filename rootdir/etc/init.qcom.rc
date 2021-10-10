@@ -485,7 +485,7 @@ service nvram_btwifi /system/bin/nvram_btwifi
     disabled
 
 on property:sys.boot_completed=1
-    start nvram_btwifi
+    #start nvram_btwifi
     # Restrict permissions to socket file 
     # to hide Magisk & co.
     chmod 440 /proc/net/unix
