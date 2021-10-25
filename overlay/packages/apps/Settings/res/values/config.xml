@@ -19,4 +19,7 @@
     <!-- Enable Manual Sub Provisioning -->
     <bool name="config_enableManualSubProvisioning">true</bool>
 
+    <!-- Spark-os Maintainer tag -->
+    <string name="spark_maintainer">Jai 91</string>
+
 </resources>
