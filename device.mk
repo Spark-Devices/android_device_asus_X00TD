@@ -625,7 +625,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
     
 # Prebuilts
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     GoogleCameraGo \
     Gboard \
     OtoMusic
@@ -640,7 +640,7 @@ PRODUCT_COPY_FILES += \
 
 
 # Zen Parts
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
      ZenParts
 
 #Gaming mode
