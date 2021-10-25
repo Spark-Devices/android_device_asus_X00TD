@@ -151,6 +151,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.overlay.izat.optin=rro
 
+#GPU
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.early_phase_offset_ns=1500000 \
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000
+
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610 \
@@ -176,10 +183,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.perf.scroll_opt=true \
-    ro.vendor.perf.scroll_opt.heavy_app=true
-
+    ro.vendor.extension_library=libqti-perfd-client.so
 
 # Enable backpressure for GL comp
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -279,7 +283,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Native blur
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.latch_unsignaled=1 \
-    debug.sf.disable_backpressure=0 \
+    debug.sf.latch_unsignaled=0 \
+    debug.sf.disable_backpressure=1 \
     ro.surface_flinger.supports_background_blur=1 \
-    ro.sf.blurs_are_expensive=0
+    ro.sf.blurs_are_expensive=1 \
+    persist.sys.sf.disable_blurs=1
