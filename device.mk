@@ -620,7 +620,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant
     
 # Prebuilts
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     AmplifierPrebuilt \
     GoogleCameraGo
     
@@ -639,7 +639,7 @@ PRODUCT_COPY_FILES += \
 
 
 # Zen Parts
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
      ZenParts
 
 #Gaming mode
