@@ -302,7 +302,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsensorndkbridge \
     libavservices_minijail \
-    libavservices_minijail.vendor
+    libavservices_minijail.vendor \
+    android.hardware.gnss@2.1.vendor \
+    android.hardware.gnss@2.0.vendor \
+
 
 # GPS Config
 PRODUCT_COPY_FILES += \
