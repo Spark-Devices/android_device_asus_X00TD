@@ -667,7 +667,7 @@ PRODUCT_COPY_FILES += \
 
 
 # Zen Parts
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
      ZenParts
 
 #Gaming mode
