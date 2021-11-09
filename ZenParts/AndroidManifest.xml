@@ -35,7 +35,8 @@
         android:supportsRtl="true"
         android:theme="@style/CustomOptionsTheme">
         <receiver
-            android:exported="true" android:name=".BootReceiver">
+            android:exported="true"
+            android:name=".BootReceiver">
             <intent-filter android:priority="100" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -105,6 +106,7 @@
             android:enabled="true"
             android:icon="@drawable/qs_asus"
             android:label="@string/advanced_settings"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
@@ -114,6 +116,7 @@
             android:name="com.asus.zenparts.DimmerTile"
             android:icon="@drawable/ic_backlight"
             android:label="@string/backlight_dimmer"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -127,6 +130,7 @@
         <activity
             android:name="com.asus.zenparts.ambient.AmbientGesturePreferenceActivity"
             android:label="@string/ambient_display_gestures_title"
+            android:exported="true"
             android:icon="@drawable/ic_doze">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
@@ -141,17 +145,18 @@
             android:name=".FPSTileService"
             android:icon="@drawable/ic_fps_info"
             android:label="@string/fps_info_title"
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
                     android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
-
         <service
             android:name=".SpectrumTileService" 
             android:icon="@drawable/ic_spectrum" 
             android:label="@string/spectrum_profile_title" 
+            android:exported="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"> 
             <intent-filter>
                 <action 
