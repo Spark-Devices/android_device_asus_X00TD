@@ -207,7 +207,7 @@ void vendor_check_variant()
     
     // Override props based on values set
     property_override_triple("ro.build.fingerprint", "ro.vendor.build.fingerprint", "ro.bootimage.build.fingerprint", 
-	"google/redfin/redfin:11/RQ3A.211001.001/7641976:user/release-keys");
+    	"google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys");
 
 }
 
