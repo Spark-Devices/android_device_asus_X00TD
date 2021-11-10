@@ -1,0 +1,1 @@
+allow traceur_app zygote:file { read };
