@@ -11,6 +11,18 @@ type nfc_sensors_prop, property_type;
 
 # Spectrum
 type spectrum_prop, property_type;
+type hal_sensor_default, property_type;
+type adsprpc_prop, property_type;
+type exported_system_radio_prop, property_type;
+type fm_prop, property_type;
+type bg_daemon_prop, property_type;
+type bg_boot_complete_prop, property_type;
+
+#cnd_Vendor
+type cnd_vendor_prop, property_type;
+
+# Dirac
+type dirac_prop, property_type;
 
 #msm
 type cpucore_prop, property_type;
@@ -25,3 +37,8 @@ type vendor_dolby_loglevel_prop, property_type;
 
 # GPU/CPU Boosts
 type boosts_prop, property_type;
+
+
+type exported_wifi_prop, property_type;
+type installed, property_type;
+type qcom_ims_prop, property_type;

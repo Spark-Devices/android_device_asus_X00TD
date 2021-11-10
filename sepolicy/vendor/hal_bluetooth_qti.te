@@ -1,3 +1,6 @@
+allow hal_bluetooth_qti default_prop:property_service { set };
 set_prop(hal_bluetooth_qti, btmac_prop)
 allow hal_bluetooth_qti diag_device:chr_file { ioctl read write getattr lock append map open watch watch_reads };
 allow hal_bluetooth_qti self:socket { ioctl };
+
+allow hal_bluetooth_qti vfat:file { getattr  open  read };

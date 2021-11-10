@@ -4,3 +4,13 @@ allow gmscore_app hal_memtrack_default:binder { call };
 allow gmscore_app bt_firmware_file:filesystem { getattr };
 allow gmscore_app vendor_dpmtcm_socket:sock_file { write };
 allow gmscore_app vendor_dpmd:unix_stream_socket { connectto };
+allow gmscore_app hal_memtrack_hwservice:hwservice_manager { find };
+
+allow gmscore_app aac_drc_prop:file { getattr  open };
+allow gmscore_app ab_update_gki_prop:file { getattr  open };
+allow gmscore_app apexd_config_prop:file { getattr  open };
+allow gmscore_app ctl_gsid_prop:file { getattr  open };
+allow gmscore_app ctl_interface_restart_prop:file { getattr  open };
+allow gmscore_app ctl_interface_start_prop:file { open };
+allow gmscore_app vendor_default_prop:file { getattr  open };
+allow gmscore_app zygote:file { read };

@@ -7,3 +7,5 @@ allow bluetooth property_socket:sock_file { write };
 allow bluetooth init:unix_stream_socket { connectto };
 allow bluetooth bluetooth_prop:property_service { set };
 allow bluetooth bluetooth_prop:file { read getattr map open };
+
+allow bluetooth zygote:file { read };
