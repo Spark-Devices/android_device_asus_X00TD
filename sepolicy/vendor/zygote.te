@@ -1,3 +1,5 @@
 get_prop(zygote, baseband_prop)
 allow zygote exported_camera_prop:file { getattr open read };
+
+allow zygote unlabeled:file { write };
 get_prop(zygote, exported_camera_prop);
