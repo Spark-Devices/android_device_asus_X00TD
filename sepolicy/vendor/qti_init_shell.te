@@ -6,3 +6,5 @@ allow qti_init_shell sysfs_corecontrol:file { write };
 allow qti_init_shell vendor_radio_data_file:dir { search };
 allow qti_init_shell vendor_radio_data_file:file { write };
 allow qti_init_shell vendor_radio_data_file:file { write lock append map open };
+
+allow qti_init_shell default_prop:file { getattr read open };

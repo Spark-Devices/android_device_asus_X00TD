@@ -1,2 +1,4 @@
-allow qtidataservices_app location:binder { transfer };
+allow qtidataservices_app location:binder { transfer call };
 allow qtidataservices_app qtidataservices_app:socket { read getattr };
+allow qtidataservices_app qtidataservices_app:socket { ioctl create write };
+allow qtidataservices_app zygote:file { read };
