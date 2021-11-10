@@ -1,1 +1,4 @@
 allow vold sysfs_mmc_host:file { write };
+
+allow vold exported_system_radio_prop:property_service { set };
+allow vold exported_system_radio_prop:file { read getattr map open };
