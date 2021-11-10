@@ -1,0 +1,2 @@
+allow lmkd lmkd:capability { sys_admin };
+allow lmkd init:process { ptrace };

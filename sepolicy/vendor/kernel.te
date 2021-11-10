@@ -1,6 +1,6 @@
 #bat_health
-allow kernel mnt_user_file:dir search;
-allow kernel mnt_user_file:lnk_file read;
+allow kernel mnt_user_file:dir { search };
+allow kernel mnt_user_file:lnk_file { read };
 allow kernel sdcardfs:dir { read write add_name search open };
 allow kernel sdcardfs:file { read create open };
 allow kernel storage_file:dir search;
@@ -10,8 +10,9 @@ allow kernel kcal_dev:dir relabelto;
 allow kernel kcal_dev:file relabelto;
 allow kernel kcal_dev:lnk_file relabelto;
 allow kernel mnt_vendor_file:lnk_file { read open getattr };
-allow kernel kernel:capability { dac_read_search };
+allow kernel kernel:capability { dac_read_search dac_override };
+allow kernel kernel:socket { create };
 allow kernel mnt_vendor_file:dir { search open };
 allow kernel unlabeled:file { read open getattr };
-allow kernel fuse:dir { ioctl getattr lock open search };
-
+allow kernel fuse:dir { ioctl getattr add_name lock open search };
+allow kernel fuse:file { create open };
