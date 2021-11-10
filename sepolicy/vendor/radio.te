@@ -1,21 +1,25 @@
 binder_call(radio, cnd)
 set_prop(radio, baseband_prop)
-allow radio vendor_qcom_ims_prop:file { read };
+allow radio qcom_ims_prop:file { read };
 allow radio hal_cacert_hwservice:hwservice_manager { find };
 allow radio hidl_base_hwservice:hwservice_manager { add };
 allow radio hal_datafactory_hwservice:hwservice_manager { find };
 allow radio hal_iwlan_hwservice:hwservice_manager { find };
 allow radio cnd:binder { transfer };
 
+allow radio hal_datafactory_hwservice:hwservice_manager { find };
 allow radio vendor_mpctl_prop:file { read getattr map open };
 allow radio vendor_default_prop:file { read getattr map open };
 allow radio vendor_persist_camera_prop:file { read getattr map open };
 allow radio cgroup:file { write };
 allow radio cgroup:file { open };
+allow radio vendor_qcom_ims_prop:file { open  read };
 allow radio hal_perf_default:binder { call transfer };
 allow radio hal_perf_default:fd { use };
 allow radio vendor_camera_prop:file { read getattr map open };
 allow radio exported_wifi_prop:file { read getattr map open };
 allow radio hal_telephony_hwservice:hwservice_manager{ find };
 
-get_prop(radio, vendor_qcom_ims_prop)
+allow radio cnd:binder { call };
+allow radio zygote:file { read };
+get_prop(radio, qcom_ims_prop)
