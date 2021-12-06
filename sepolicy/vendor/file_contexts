@@ -78,5 +78,3 @@
 # Smart Charging
 /sys/class/power_supply/battery/charging_enabled                    u:object_r:sysfs_scharge:s0
 
-# Smart Charging
-/sys/class/power_supply/battery/charging_enabled                    u:object_r:sysfs_scharge:s0
