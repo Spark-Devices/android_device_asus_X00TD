@@ -88,48 +88,6 @@
         <item>245 240 256 35 33 127 127 0</item>
     </array>
     
-    <string-array name="cpucore_profiles">
-        <item>@string/cpucore_zero</item>
-        <item>@string/cpucore_one</item>
-        <item>@string/cpucore_two</item>
-        <item>@string/cpucore_three</item>
-        <item>@string/cpucore_four</item>
-        <item>@string/cpucore_five</item>
-        <item>@string/cpucore_six</item>
-        <item>@string/cpucore_seven</item>
-    </string-array>
-    
-    <string-array name="cpucore_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </string-array>
-    
-    <string-array name="tcpcongestion_profiles">
-        <item>@string/tcpcongestion_cubic</item>
-        <item>@string/tcpcongestion_westwood</item>        
-        <item>@string/tcpcongestion_veno</item>
-        <item>@string/tcpcongestion_bic</item>
-        <item>@string/tcpcongestion_illinois</item>
-        <item>@string/tcpcongestion_htcp</item>
-        <item>@string/tcpcongestion_bbr</item>
-    </string-array>
-    
-    <string-array name="tcpcongestion_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-    
     <!-- Values for Dirac headset pref -->
     <string-array name="dirac_headset_pref_entries" translatable="false">
         <item>@string/dirac_headset_default</item>
@@ -185,44 +143,72 @@
     <!-- Values for Dirac preset pref -->
     <string-array name="dirac_preset_pref_entries" translatable="false">
         <item>@string/dirac_preset_default</item>
-        <item>@string/dirac_preset_bass_booster</item>
         <item>@string/dirac_preset_rock</item>
         <item>@string/dirac_preset_jazz</item>
         <item>@string/dirac_preset_pop</item>
         <item>@string/dirac_preset_classical</item>
         <item>@string/dirac_preset_hiphop</item>
-        <item>@string/dirac_preset_blues</item>
+        <item>@string/dirac_preset_rb</item>
         <item>@string/dirac_preset_electronic</item>
-        <item>@string/dirac_preset_country</item>
+        <item>@string/dirac_preset_acoustic</item>
         <item>@string/dirac_preset_dance</item>
         <item>@string/dirac_preset_metal</item>
-        <item>@string/dirac_preset_balanced</item>
-        <item>@string/dirac_preset_live</item>
-        <item>@string/dirac_preset_bass_reduction</item>
-        <item>@string/dirac_preset_treble_reduction</item>
-        <item>@string/dirac_preset_soft_bass</item>
-        <item>@string/dirac_preset_soft_treble</item>
     </string-array>
 
     <string-array name="dirac_preset_pref_values" translatable="false">
         <item>"0,0,0,0,0,0,0"</item>
-        <item>"10,8,-3,0,-3,5,5"</item>
-        <item>"4,2,-2,0,-2,-2,4"</item>
-        <item>"0,0,0,-2,-3,0,0"</item>
-        <item>"0,-3,-5,0,0,-3,0"</item>
-        <item>"0,0,0,0,3,6,6"</item>
-        <item>"3,3,-3,0,-3,0,2"</item>
-        <item>"2,4,-6,4,0,1,2"</item>
-        <item>"3,3,-1,0,-3,0,0"</item>
-        <item>"0,0,-2,-2,2,2,0"</item>
-        <item>"0,4,2,0,-2,-2,4"</item>
+        <item>"-3,0,2,5,6,4,1"</item>
+        <item>"1,0,-3,-2,-3,1,2"</item>
+        <item>"5,2,-2,-5,-1,3,5"</item>
+        <item>"1,1,0,3,5,3,2"</item>
+        <item>"2,0,-3,-4,3,2,4"</item>
+        <item>"3,3,2,-8,2,3,2"</item>
+        <item>"2,2,-7,2,-4,3,4"</item>
+        <item>"1,-2,-5,1,3,4,3"</item>
+        <item>"2,3,-7,-2,4,4,4"</item>
         <item>"2,0,0,-2,-4,0,0"</item>
-        <item>"3,1,0,0,0,1,3"</item>
-        <item>"-4,-2,2,2,2,1,1"</item>
-        <item>"-5,-3,0,0,0,0,0"</item>
-        <item>"0,0,0,0,0,-5,-3"</item>
-        <item>"3,3,1,-3,-3,0,0"</item>
-        <item>"0,0,-1,-4,-4,5,4"</item>
+    </string-array>
+    
+    <string-array name="cpucore_profiles">
+        <item>@string/cpucore_zero</item>
+        <item>@string/cpucore_one</item>
+        <item>@string/cpucore_two</item>
+        <item>@string/cpucore_three</item>
+        <item>@string/cpucore_four</item>
+        <item>@string/cpucore_five</item>
+        <item>@string/cpucore_six</item>
+        <item>@string/cpucore_seven</item>
+    </string-array>
+    
+    <string-array name="cpucore_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    
+    <string-array name="tcpcongestion_profiles">
+        <item>@string/tcpcongestion_cubic</item>
+        <item>@string/tcpcongestion_westwood</item>        
+        <item>@string/tcpcongestion_veno</item>
+        <item>@string/tcpcongestion_bic</item>
+        <item>@string/tcpcongestion_illinois</item>
+        <item>@string/tcpcongestion_htcp</item>
+        <item>@string/tcpcongestion_bbr</item>
+    </string-array>
+    
+    <string-array name="tcpcongestion_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
     </string-array>
     <!-- Boosts -->
     <string-array name="gpuboost_profiles">

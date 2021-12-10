@@ -26,7 +26,16 @@ import com.asus.zenparts.preferences.VibratorStrengthPreference;
 
 import com.asus.zenparts.kcal.Utils;
 import com.asus.zenparts.ambient.SensorsDozeService;
-import com.asus.zenparts.dirac.DiracUtils;
+
+import android.app.ActivityManager;
+import android.content.SharedPreferences;
+import android.os.SELinux;
+import android.util.Log;
+import android.widget.Toast;
+import com.asus.zenparts.R;
+import java.io.IOException;
+import java.util.List;
+
 
 
 public class BootReceiver extends BroadcastReceiver implements Utils {
@@ -44,9 +53,74 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
     private final String EARPIECE_GAIN_PATH = "/sys/kernel/sound_control/earpiece_gain";
     private final String SPEAKER_GAIN_PATH = "/sys/kernel/sound_control/speaker_gain";
 
+    private static final String PREF_SELINUX_MODE = "selinux_mode";
+
+    private Context settingsContext = null;
+    private static final String TAG = "SettingsOnBoot";
+    private boolean mSetupRunning = false;
+    private Context mContext;
+
+
     public void onReceive(Context context, Intent intent) {
     
+        mContext = context;
+    ActivityManager activityManager =
+            (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+    List<ActivityManager.RunningAppProcessInfo> procInfos =
+            activityManager.getRunningAppProcesses();
+    for(int i = 0; i < procInfos.size(); i++) {
+        if(procInfos.get(i).processName.equals("com.google.android.setupwizard")) {
+            mSetupRunning = true;
+        }
+    }
+
+    if(!mSetupRunning) {
+        try {
+            settingsContext = context.createPackageContext("com.android.settings", 0);
+        } catch (Exception e) {
+            Log.e(TAG, "Package not found", e);
+        }
+        SharedPreferences sharedpreferences = context.getSharedPreferences("selinux_pref",
+                Context.MODE_PRIVATE);
+        if (sharedpreferences.contains(PREF_SELINUX_MODE)) {
+        boolean currentIsSelinuxEnforcing = SELinux.isSELinuxEnforced();
+        boolean isSelinuxEnforcing =
+                    sharedpreferences.getBoolean(PREF_SELINUX_MODE,
+                            currentIsSelinuxEnforcing);
+            if (isSelinuxEnforcing) {
+               if (!currentIsSelinuxEnforcing) {
+                   try {
+                        SuShell.runWithSuCheck("setenforce 1");
+                        showToast(context.getString(R.string.selinux_enforcing_toast_title),
+                                context);
+                    } catch (SuShell.SuDeniedException e) {
+                        showToast(context.getString(R.string.cannot_get_su), context);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+               }
+            } else {
+                if (currentIsSelinuxEnforcing) {
+                    try {
+                        SuShell.runWithSuCheck("setenforce 0");
+                        showToast(context.getString(R.string.selinux_permissive_toast_title),
+                                context);
+                    } catch (SuShell.SuDeniedException e) {
+                        showToast(context.getString(R.string.cannot_get_su), context);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }}
+      
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        
+        // Dirac
+        boolean denabled = sharedPrefs.getBoolean(DeviceSettings.PREF_ENABLE_DIRAC, true);
+        if (denabled) {
+            context.startService(new Intent(context, DiracService.class));
+        }
 
         // GAINS
         int gain = Settings.Secure.getInt(context.getContentResolver(), DeviceSettings.PREF_HEADPHONE_GAIN, 5);
@@ -64,9 +138,6 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         if (enabled) {
             context.startService(new Intent(context, FPSInfoService.class));
         }
-        
-        // Dirac
-        new DiracUtils(context).onBootCompleted();
         
 	//MSM Thermal control
 	FileUtils.setValue(DeviceSettings.MSM_THERMAL_PATH, 
@@ -119,5 +190,9 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         
 	}
     }
+    private void showToast(String toastString, Context context) {
+        Toast.makeText(context, toastString, Toast.LENGTH_SHORT)
+                .show();
+        }
 }
 
