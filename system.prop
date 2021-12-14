@@ -218,6 +218,9 @@ ro.usb.firstboot.config=diag,serial_cdev,rmnet,adb
 persist.data.iwlan.enable=true
 persist.vendor.data.iwlan.enable=true
 
+# Blur on app-launch
+ro.launcher.blur.appLaunch=0
+
 # Create zram disk
 ro.vendor.qti.config.zram=true
 
