@@ -5,8 +5,10 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/pixys_X00TD.mk
+    $(LOCAL_DIR)/spark_X00TD.mk
 
 COMMON_LUNCH_CHOICES := \
-    pixys_X00TD-userdebug
+    spark_X00TD-userdebug \
+    spark_X00TD-user \
+    spark_X00TD-eng
 

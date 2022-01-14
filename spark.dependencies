@@ -1,0 +1,14 @@
+[
+  {
+    "remote": "devices",
+    "repository": "android_kernel_asus_sdm660",
+    "target_path": "kernel/asus/sdm660",
+    "branch": "spark"
+  },
+  {
+    "remote": "devices",
+    "repository": "vendor_asus_X00TD",
+    "target_path": "vendor/asus/X00TD",
+    "branch": "spark"
+  }
+]

@@ -70,3 +70,9 @@ persist.timed.enable=true
 # WiFi Display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
+
+# Spark-OS
+ro.spark.device.name=Asus Zenfone Max Pro M1
+ro.spark.group.url=https://t.me/sparkx00td
+ro.spark.maintainer=Jai chiranjeeva
+ro.spark.maintainer.username=jai_91
