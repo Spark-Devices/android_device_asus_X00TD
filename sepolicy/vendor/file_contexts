@@ -1,3 +1,9 @@
+# CryptfsHW HAL
+/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.cryptfshw@1\.0-service-qti\.qsee   u:object_r:hal_keymaster_qti_exec:s0
+
+# clean_scratch_files
+/system/bin/clean_scratch_files                                      u:object_r:clean_scratch_files_exec:s0
+
 # Fingerprint
 /dev/focaltech_fp                                                             u:object_r:focaltech_device:s0
 /dev/fpsdev0                                                                  u:object_r:cdfinger_device:s0
@@ -20,6 +26,9 @@
 
 # Persist
 /persist(/.*)?                                                                u:object_r:mnt_vendor_file:s0
+
+# power
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service-qti u:object_r:hal_power_default_exec:s0
 
 # Scripts
 /(vendor|system/vendor)/bin/init\.btmac\.sh                                   u:object_r:init-btmac-sh_exec:s0
