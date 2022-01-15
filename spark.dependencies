@@ -7,7 +7,7 @@
   },
   {
     "remote": "devices",
-    "repository": "vendor_asus_X00TD",
+    "repository": "android_vendor_asus_X00TD",
     "target_path": "vendor/asus/X00TD",
     "branch": "spark"
   }
