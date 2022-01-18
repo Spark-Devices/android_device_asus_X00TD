@@ -24,9 +24,6 @@ TARGET_INCLUDE_LIVE_WALLPAPERS := false
 # Google Recorder
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 
-# Spark OFFICIAL
-SPARK_BUILD_TYPE := OFFICIAL
-
 # Inherit from X00TD device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
