@@ -48,8 +48,8 @@ service nvram_btwifi /system/bin/nvram_btwifi
     oneshot
     disabled
 
-on property:sys.boot_completed=1
-    start nvram_btwifi
+# on property:sys.boot_completed=1
+#    start nvram_btwifi
 
 on property:sys.nvram.btmac=*
     start vendor-btmac-sh
