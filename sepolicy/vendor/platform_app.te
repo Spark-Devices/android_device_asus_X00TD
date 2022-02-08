@@ -1,1 +1,2 @@
 allow platform_app vendor_default_prop:file { getattr  open };
+allow platform_app sysfs:file { read open getattr write };
