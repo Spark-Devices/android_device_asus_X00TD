@@ -3,7 +3,7 @@
     "remote": "devices",
     "repository": "android_kernel_asus_sdm660",
     "target_path": "kernel/asus/sdm660",
-    "branch": "spark"
+    "branch": "ultron"
   },
   {
     "remote": "devices",
