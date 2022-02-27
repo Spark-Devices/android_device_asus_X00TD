@@ -9,6 +9,10 @@ vendor.bluetooth.soc=cherokee
 # BPF
 ro.kernel.ebpf.supported=true
 
+# Blurs
+ro.sf.blurs_are_expensive=1
+ro.surface_flinger.supports_background_blur=1
+
 # Camera
 persist.vendor.camera.privapp.list=org.codeaurora.snapcam
 persist.camera.privapp.list=org.codeaurora.snapcam
