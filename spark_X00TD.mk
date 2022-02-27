@@ -27,6 +27,9 @@ TARGET_INCLUDE_LIVE_WALLPAPERS := false
 # Google Recorder
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 
+# Quick Tap
+TARGET_SUPPORTS_QUICK_TAP := true
+
 # Inherit from X00TD device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
